@@ -35,6 +35,7 @@ label {
   font-weight: bold;
 }
 
+/* Select dropdown */
 select {
   padding: 10px;
   font-size: 1rem;
@@ -52,6 +53,7 @@ select:focus {
   background-color: #3f5c77;
 }
 
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -95,12 +97,10 @@ td:first-child {
   text-align: center;
 }
 
-/* Space out columns */
 th, td {
   padding: 15px 20px;
 }
 
-/* Add some rounded corners at the top */
 thead tr:first-child th:first-child {
   border-top-left-radius: 8px;
 }

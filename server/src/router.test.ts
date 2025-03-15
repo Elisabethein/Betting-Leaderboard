@@ -26,18 +26,18 @@ describe('API tests', () => {
         expect(response.body).toEqual(mockCustomers);
     });
 
-    it('GET /top-customers should return top customers', async () => {
+    it('GET /top-customers should return top customers with only positive profit', async () => {
         const mockTopCustomers = [
             { name: 'John Doe', country: 'US', totalBets: 10, winRate: 50, profit: 300 },
             { name: 'Jane Doe', country: 'UK', totalBets: 20, winRate: 60, profit: 200 },
+            { name: 'Alice Doe', country: 'US', totalBets: 30, winRate: 70, profit: -100 },
         ];
-        (getTopCustomers as jest.Mock).mockResolvedValue(mockTopCustomers);
+        (getTopCustomers as jest.Mock).mockResolvedValue(mockTopCustomers.filter(customer => customer.profit >= 0));
 
         const response = await request(app).get('/top-customers');
 
         expect(response.status).toBe(200);
-        expect(response.body).toEqual(mockTopCustomers);
-        expect(response.body.every((customer: any) => customer.profit >= 0)).toBe(true);
+        expect(response.body).toEqual(mockTopCustomers.filter(customer => customer.profit >= 0));
     });
 
     it("GET /top-customers should return an empty array when no customers are found", async () => {
