@@ -23,21 +23,23 @@ const dbConfig = {
 
 const db = knex(dbConfig);
 
-// Run pending migrations on startup
-(async () => {
-    try {
-        console.log('Checking for pending migrations...');
-        await db.migrate.latest();
-        console.log('Migrations completed successfully!');
+if (process.env.NODE_ENV !== 'test') {
+    // Run pending migrations on startup
+    (async () => {
+        try {
+            console.log('Checking for pending migrations...');
+            await db.migrate.latest();
+            console.log('Migrations completed successfully!');
 
-        console.log('Applying seeds...');
-        await db.seed.run();
-        console.log('Seeds applied succesfully!');
-    } catch (error) {
-        console.error('Error running migrations:', error);
-        process.exit(1); // Exit the application if migrations fail
-    }
-})();
+            console.log('Applying seeds...');
+            await db.seed.run();
+            console.log('Seeds applied succesfully!');
+        } catch (error) {
+            console.error('Error running migrations:', error);
+            process.exit(1); // Exit the application if migrations fail
+        }
+    })();
+}
 
 export { db, dbConfig };
 
