@@ -2,6 +2,8 @@
 
 This is a full-stack development assignment where you need to modify both the frontend application in the `/client` folder and the backend application in the `/server` folder. To learn more about the frontend and backend applications and how they work, check out the README.md files in their respective folders.
 
+Note: Refer to the last section for details on the required changes.
+
 ## Goal
 
 Your goal is to create a leaderboard of customers with the best betting performance. You need to create a new endpoint in the backend project that returns the top betting customers with the fields required for the leaderboard table in the frontend. In the frontend project, you need to develop a UI for the betting leaderboard, which will display the data fetched from the backend. The table in the frontend does not need to be very beautiful and fine-tuned - it is just important that it works and meets the requirements :)
