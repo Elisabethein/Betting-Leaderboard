@@ -76,8 +76,8 @@ A new endpoint was added to the `router.ts` to fetch only the top players. This 
 
 The business logic is implemented in a new `service.ts` file.
 
-In `App.tsx`, a table displays the fetched players. If no players are available, a message is shown. A dropdown filter allows users to select a country, dynamically fetching and displaying the top 10 players from that country rather than filtering the initially retrieved list.
+In `App.tsx`, a table displays the fetched players. If no players are available, a message is shown. A dropdown filter allows users to select a country, dynamically fetching and displaying the top 10 players from that country rather than filtering the initially retrieved list. The table and the selector are in separate components - `LeaderboardTable.tsx` and `CountrySelector.tsx` correspondingly.
 
 The table and dropdown are styled to align with the page’s logo, with minimal additional styling.
 
-API tests, written using Jest, are available in `router.test.ts`.
+API tests, written using Jest, are available in `router.test.ts`, and can be run with `npx jest`.
